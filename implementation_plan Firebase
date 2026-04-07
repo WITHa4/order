@@ -1,0 +1,43 @@
+# 🚀 Migration to Firebase Realtime Database
+
+දැනට ඔයාගේ website එක වැඩ කරන්නේ "Local Storage" (Browser එකේ මතකය) පාවිච්චි කරලා. ඒ නිසා තමයි අනිත් අයට අලුත් products පෙන්නන්න අතින් Git push කරන්න වුණේ. අපි දැන් මේක **Firebase Realtime Database** එකකට හරවන්න යන්නේ. එතකොට අලුත් item එකක් Admin Panel එකෙන් දැම්ම ගමන් තත්පරෙන් live site එකේ හැමෝටම පෙනෙනවා!
+
+## ⚠️ User Review Required
+
+මේක කරන්න ඔයාගෙන් ලොකු උදව්වක් ඕන වෙනවා. මට කෙලින්ම ඔයා වෙනුවෙන් Firebase Account එකක් හදන්න බැරි නිසා, **ඔයා පහළ තියෙන පියවර ටික කරලා මට "Firebase Config" එක අරන් දෙන්න ඕන.**
+
+1. [Firebase Console](https://console.firebase.google.com/) එකට ඔයාගේ Google එකවුන්ට් එකෙන් ලොග් වෙන්න.
+2. **"Add Project"** (හෝ Create a project) click කරලා project එකට නමක් දෙන්න (e.g., `orderwitha4-shop`).
+3. Google Analytics අහද්දි আপাতত ඒක off කරලා Create කරන්න.
+4. Project එක හැදුනට පස්සේ, වම් පැත්තේ තියෙන මෙනු එකෙන් **"Build ➡️ Realtime Database"** යන්න.
+5. **"Create Database"** click කරලා, Singapore හෝ අග්නිදිග ආසියාවේ (Southeast Asia) server එකක් තෝරන්න.
+6. මොඩ් එක අහද්දි **"Start in test mode"** තෝරලා Enable කරන්න (දැනට හැමෝටම කියවන්න/ලියන්න පුළුවන් වෙන්න).
+7. ඊළඟට Project Overview Dashboard එකට ගිහින් (ගෙදර අයිකන් එක), **"&lt;/&gt;" (Web) අයිකන් එක click කරලා අලුත් web app එකක් register කරන්න**.
+8. අන්තිමට ඔයාට `firebaseConfig` කියලා කෝඩ් කෑල්ලක් ලැබෙයි (apiKey, authDomain, databaseURL එහෙම තියෙන එක). **අන්න ඒ කෝඩ් එක මට කොපි කරලා මෙතනට දාන්න.**
+
+## 🛠️ Proposed Changes
+
+අපි ඔයා Config එක දුන්නට පස්සේ files කිහිපයක් වෙනස් කරනවා.
+
+---
+
+### 1. `index.html` සහ `admin.html`
+**[MODIFY]** `index.html`, `admin.html`
+- Firebase SDK files (Javascript libraries) HTML එකට ඇතුලත් කිරීම.
+
+### 2. `firebase-config.js` 
+**[NEW]** `firebase-config.js`
+- ඔයා දෙන Config කෝඩ් එක දාලා අලුත් file එකක් හදනවා database එකට connect වෙන්න.
+
+### 3. `script.js` (Storefront Logic)
+**[MODIFY]** `script.js`
+- LocalStorage එකෙන් දත්ත ගන්න වෙනුවට Google Firebase එකෙන් තත්පරෙන් දත්ත ලබාගැනීමට කේත වෙනස් කිරීම.
+- Database එක load වෙනකන් site එකේ පරණ structure එක (products.js හරහා) පෙන්නලා පස්සේ update වීම.
+
+### 4. `admin.js` (Admin Panel Logic)
+**[MODIFY]** `admin.js`
+- Admin එකෙන් අලුතෙන් product එකක් දාද්දි පැරණි විදිහට local memory එකට save කරනවා වෙනුවට කෙලින්ම **Firebase Cloud එකට push කිරීමට** `saveProduct()`, `deleteProduct()` function වෙනස් කිරීම.
+
+## ❓ Open Questions
+
+මම අර උඩින් කියපු පියවර 8 ඔයාට තනියම කරගන්න පුළුවන්ද? තේරුණේ නැති තැනක් තියෙනවා නම් මගෙන් අහන්න. ඔයා Config එක ගෙනත් දුන්න ගමන් මං කෝඩ් ටික ගහන්න පටන් ගන්නම්!

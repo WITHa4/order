@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful | orderWITHa4</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .success-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .success-icon {
+      font-size: 5rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+      animation: scaleUp 0.5s ease-out;
+    }
+    @keyframes scaleUp {
+      0% { transform: scale(0); }
+      80% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .success-card {
+      background: var(--bg-secondary);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      max-width: 500px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .btn-home {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="success-container">
+    <div class="success-card fade-in">
+      <div class="logo" style="justify-content: center; margin-bottom: 30px;">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14H12V22L22 10H13V2Z" fill="white"/>
+          </svg>
+        </div>
+        <span>order</span>WITHa4
+      </div>
+      <div class="success-icon">✅</div>
+      <h1 class="highlight">Payment Successful!</h1>
+      <div id="orderIDContainer" style="margin: 15px 0; background: rgba(0,212,255,0.1); padding: 10px; border-radius: 8px; border: 1px dashed var(--accent); display: none;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); display: block; text-transform: uppercase;">Order Reference</span>
+        <span id="displayOrderID" style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: var(--accent);"></span>
+      </div>
+      <p style="margin: 20px 0; color: var(--text-secondary);">Thank you for your purchase. Your order has been placed successfully and is being processed.</p>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">A confirmation email will be sent to you shortly.</p>
+      <a href="index.html" class="btn btn-primary btn-home">Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get('order_id');
+      if (orderId) {
+        document.getElementById('orderIDContainer').style.display = 'block';
+        document.getElementById('displayOrderID').textContent = orderId;
+      }
+    });
+  </script>
+</body>
+</html>

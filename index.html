@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="orderWITHa4 — Your trusted electronics and home appliance store. Shop stand fans, ceiling fans, blenders, industrial fans, air conditioners and more at the best prices in Sri Lanka.">
+  <title>orderWITHa4 | Electronics & Home Appliances</title>
+
+  <!-- ===== PERFORMANCE: Resource Hints ===== -->
+  <link rel="preconnect" href="https://www.payhere.lk">
+  <link rel="dns-prefetch" href="https://www.payhere.lk">
+  <link rel="dns-prefetch" href="https://wa.me">
+
+  <!-- ===== PERFORMANCE: Preload Critical CSS ===== -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Premium Alert Styles */
+    #customAlertOverlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
+      z-index: 10000; display: none; align-items: center; justify-content: center;
+      animation: fadeInOverlay 0.3s ease;
+    }
+    @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+
+    #customAlertContent {
+      background: #111111; 
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 30px; 
+      border-radius: 28px; 
+      width: 90%; 
+      max-width: 420px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); 
+      color: #fff;
+      pointer-events: auto;
+      transform: scale(1);
+      animation: alertPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes alertPop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    .alert-emoji { font-size: 2rem; margin-bottom: 20px; display: block; animation: waveHand 1.5s infinite; transform-origin: 70% 70%; }
+    @keyframes waveHand {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(15deg); }
+    }
+
+    .alert-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; color: #fff; }
+    .alert-desc { font-size: 1rem; color: #888; line-height: 1.5; margin-bottom: 25px; }
+    .alert-desc b { color: #aaa; }
+
+    .alert-variant-tag {
+      background: rgba(255,255,255,0.03); 
+      padding: 10px 18px; 
+      border-radius: 12px; 
+      margin: 5px; 
+      display: inline-block; 
+      font-size: 0.85rem; 
+      border: 1px solid rgba(255,255,255,0.06); 
+      color: var(--accent); 
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .alert-btn-primary {
+      background: #00d4ff; 
+      color: #000; 
+      border: none; 
+      padding: 16px 20px; 
+      border-radius: 16px; 
+      font-weight: 800; 
+      font-size: 1rem;
+      cursor: pointer; 
+      width: 100%; 
+      margin-top: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+    }
+    .alert-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+      background: #33e0ff;
+    }
+    .alert-btn-primary:active { transform: translateY(0); }
+  </style>
+  <script>
+    // GLOBAL HELPERS
+    function esc(s) {
+      if (!s) return "";
+      return s.toString().replace(/'/g, "\\'");
+    }
+    window.showCustomAlert = function(contentHtml) {
+      const overlay = document.getElementById('customAlertOverlay');
+      const content = document.getElementById('customAlertContent');
+      if (overlay && content) {
+        content.innerHTML = contentHtml;
+        overlay.style.display = 'flex';
+      }
+    };
+    window.closeCustomAlert = function() {
+      const overlay = document.getElementById('customAlertOverlay');
+      if (overlay) overlay.style.display = 'none';
+    };
+  </script>
+</head>
+
+<body>
+  <!-- Custom Alert HTML Structure -->
+  <div id="customAlertOverlay" onclick="if(event.target===this) closeCustomAlert()">
+    <div id="customAlertContent"></div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="url(#logo-grad)" stroke-width="2" />
+            <path d="M20 8L12 28H16L18 23H22L24 28H28L20 8ZM20 12L21.5 19H18.5L20 12Z" fill="white" />
+            <path d="M22 23V28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00d4ff"/>
+                <stop offset="1" stop-color="#7b61ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span>order</span>WITHa4
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Categories</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-search" id="navSearch">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <div class="hero-badge">🔌 Trusted Electronics Store</div>
+        <h1>Premium <span class="highlight">Electronics</span> for Your Home</h1>
+        <p>Discover top-quality home appliances and electronics at unbeatable prices. From powerful fans to smart
+          cooling — we've got everything you need.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" class="premium-icon" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1H4L6.68 14.39C6.80 15.35 7.62 16 8.59 16H18.51C19.48 16 20.30 15.35 20.42 14.39L22 6H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+              <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+            </svg> Shop Now
+          </a>
+          <a href="#contact" class="btn btn-secondary">📞 Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">Categories</span>
+        <h2>Shop by Category</h2>
+        <p>Find exactly what you need quickly and easily.</p>
+      </div>
+      <div class="categories-grid">
+        <a href="#cat-fan" class="category-card fade-in">
+          <div class="cat-icon">🌀</div>
+          <h3>Fans & Cooling</h3>
+        </a>
+        <a href="#cat-oven" class="category-card fade-in">
+          <div class="cat-icon">🍕</div>
+          <h3>Ovens & Grills</h3>
+        </a>
+        <a href="#cat-blender" class="category-card fade-in">
+          <div class="cat-icon">🥤</div>
+          <h3>Blenders & Mixers</h3>
+        </a>
+        <a href="#cat-iron" class="category-card fade-in">
+          <div class="cat-icon">👔</div>
+          <h3>Irons</h3>
+        </a>
+        <a href="#cat-ac" class="category-card fade-in">
+          <div class="cat-icon">❄️</div>
+          <h3>Air Conditioners</h3>
+        </a>
+        <a href="#cat-light" class="category-card fade-in">
+          <div class="cat-icon">💡</div>
+          <h3>Lighting</h3>
+        </a>
+        <a href="#cat-dispenser" class="category-card fade-in">
+          <div class="cat-icon">💧</div>
+          <h3>Water Dispensers & Kettles</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FULL CATALOG ===== -->
+  <section class="section" id="catalog" style="padding-top: 0;">
+    <div class="container">
+      <div id="catalog-container">
+        <p style="text-align:center; padding: 40px; color: var(--text-muted);">Loading full catalog...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRANDS ===== -->
+  <section class="section" id="brands" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">Top Brands</span>
+        <h2>Shop by Brand</h2>
+        <p>Authentic products from world-renowned manufacturers.</p>
+      </div>
+      <div class="brands-grid" id="brandsGrid">
+        <!-- Dynamically rendered via Javascript -->
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section" id="features" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>We Deliver Excellence</h2>
+        <p>Trusted by thousands of customers across Sri Lanka for quality and reliability.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🚚</div>
+          <h3>Island-wide Delivery</h3>
+          <p>Fast and safe delivery to any location in Sri Lanka. Track your order in real-time.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🛡️</div>
+          <h3>Genuine Warranty</h3>
+          <p>All products come with manufacturer warranty. Your purchase is fully protected.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">✅</div>
+          <h3>100% Authentic</h3>
+          <p>We only sell genuine, brand-new products. No refurbished or second-hand items.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">💬</div>
+          <h3>24/7 Support</h3>
+          <p>Our customer support team is always ready to help you. Call, message, or email us anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text fade-in-left">
+          <span class="section-tag">About Us</span>
+          <h2>Your Trusted Partner in Premium Electronics</h2>
+          <p><strong>orderWITHa4</strong> is a premier Sri Lankan-based electronics and home appliance retailer, dedicated to bringing high-end technology to every household. With a catalog featuring over 150 items from globally recognized brands like <strong>Bajaj, Havells, Voltas, and Liper</strong>, we specialize in providing sustainable, energy-efficient, and durable solutions for modern living.</p>
+          <p>Whether you're looking for a simple stand fan or a high-performance inverter AC system, we are committed to delivering authenticity, competitive pricing, and exceptional customer care.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="number">150+</div>
+              <div class="label">Product Models</div>
+            </div>
+            <div class="stat">
+              <div class="number">500+</div>
+              <div class="label">Happy Customers</div>
+            </div>
+            <div class="stat">
+              <div class="number">24/7</div>
+              <div class="label">Support</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual fade-in-right">
+          <div class="about-visual-card">
+            <div class="icon-big">🛡️</div>
+            <h3>Authenticity Guaranteed</h3>
+            <p>At orderWITHa4, we deal only in 100% brand-new, genuine products with manufacturer warranties. From Colombo to Jaffna, our mission is to make premium home appliances accessible and affordable for every Sri Lankan family.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">Get In Touch</span>
+        <h2>Contact Us</h2>
+        <p>Have a question or want to place an order? Reach out to us anytime.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form fade-in-left" id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <span class="error-message">Please enter your name</span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <span class="error-message">Please enter a valid email</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="07X XXX XXXX">
+            <span class="error-message">Please enter a valid phone number</span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
+            <span class="error-message">Please enter your message</span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send
+            Message</button>
+          <div class="success-message" id="successMessage">✅ Thank you! Your message has been sent successfully.</div>
+        </form>
+        <div class="contact-info fade-in-right">
+          <div class="contact-card">
+            <div class="icon">📍</div>
+            <div>
+              <h4>Our Location</h4>
+              <p>Colombo, Sri Lanka</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+94 72 629 8987</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@orderwitha4.lk</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="icon">⏰</div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Mon – Sat: 9AM – 8PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="display:flex; align-items:center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" style="margin-right:10px; color:#00d4ff;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        Your Cart
+      </h3>
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <button id="clearCartBtn" style="background: none; border: none; color: #ff4757; text-decoration: underline; cursor: pointer; font-size: 0.85rem; font-weight: 600; display: none; align-items:flex-end;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="margin-right:4px;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          Clear
+        </button>
+        <button class="close-cart" id="closeCart">&times;</button>
+      </div>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart-msg">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-summary-group">
+            <div class="summary-row">
+              <span>M.R.P</span>
+              <span id="cartSubtotal">Rs. 0</span>
+            </div>
+            <div class="summary-row savings" id="cartSavingsRow">
+              <span>Saved Amount</span>
+              <span id="cartSavingsDisplay">Rs. 0</span>
+            </div>
+            <div class="summary-row total">
+              <span>Amount Payable</span>
+              <span id="cartTotalDisplay">Rs. 0</span>
+            </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="btn-checkout" id="checkoutBtn">
+          Order All via WhatsApp 
+          <svg viewBox="0 0 24 24" fill="none" class="premium-icon" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+            <path d="M1 1H4L6.68 14.39C6.80 15.35 7.62 16 8.59 16H18.51C19.48 16 20.30 15.35 20.42 14.39L22 6H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+            <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="btn-checkout btn-pay-online" id="payOnlineBtn">Pay Online (Card/Genie) 💳</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FLOATING CART BUTTON ===== -->
+  <button class="floating-cart" id="floatingCart">
+    <span class="cart-icon">
+      <svg viewBox="0 0 24 24" fill="none" class="premium-icon" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1H4L6.68 14.39C6.80 15.35 7.62 16 8.59 16H18.51C19.48 16 20.30 15.35 20.42 14.39L22 6H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+        <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14H12V22L22 10H13V2Z" fill="white"/>
+              </svg>
+            </div>
+            <span>order</span>WITHa4
+          </div>
+          <p>Your trusted electronics and home appliance store in Sri Lanka. Quality products, unbeatable prices, and exceptional service.</p>
+          <a href="admin.html" style="font-size: 0.7rem; color: var(--text-muted); text-decoration: none; opacity: 0.3; margin-top: 10px; display: inline-block;">Admin Login</a>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Categories</a></li>
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#features">Why Us</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="https://wa.me/94726298987" target="_blank" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="YouTube">🎬</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 orderWITHa4. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="Go to top">⬆️</button>
+
+  <!-- ================= FIREBASE SDK ================= -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebase-db.js"></script>
+  <!-- ================================================ -->
+  
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+  <!-- PayHere loaded async — only needed at checkout -->
+  <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js" async></script>
+</body>
+
+</html>
